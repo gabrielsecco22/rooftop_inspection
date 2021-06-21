@@ -1,0 +1,34 @@
+version: "3"
+services:
+
+  postgres-db:
+    image: postgres
+    restart: always
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      # declare your mount volume /host/dir:/container/dir
+      - /home/gabriel/docker_volumes/pgdata:/var/lib/postgresql/data
+
+  metabase-app:
+    image: metabase/metabase
+    restart: always
+    ports:
+      - 15010:3000
+    volumes:
+      # declare your mount volume /host/dir:/container/dir
+      - /home/gabriel/docker_volumes/metabase-data:/metabase-data
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: postgres
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: postgres
+      MB_DB_HOST: postgres-db
+    depends_on:
+      - postgres-db
+    links:
+      - postgres-db
