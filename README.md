@@ -10,6 +10,8 @@ This is an IoT project designed to receive frames from drone flight and process 
 
 ## Metabase
 - Acess: `localhost:15010`
+- user: `admin@gmail2.com`
+- pass: 657n03ZdPC7kA8
 
 ## Postgres
 - Access: `localhost:15432`
