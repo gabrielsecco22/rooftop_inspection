@@ -14,7 +14,7 @@ services:
       - ./docker_volumes/pgdata:/var/lib/postgresql/data
 
   metabase-app:
-    image: metabase/metabase
+    image: metabase/metabase:v0.39.4
     restart: always
     ports:
       - 15010:3000
