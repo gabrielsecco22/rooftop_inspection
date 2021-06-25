@@ -12,7 +12,7 @@ This is an IoT project designed to receive frames from drone flight and process 
 ```
 - Restore database dump:
 ```console
- cat init.sql | docker exec -i rooftop_inspection_postgres-db_1 psql -U postgres
+ docker cp ./init.sql rooftop_inspection_postgres-db_1:/init.sql && docker exec -i rooftop_inspection_postgres-db_1 psql -f /init.sql -U postgres
 ```
 
 ## Metabase
