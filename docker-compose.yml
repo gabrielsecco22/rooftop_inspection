@@ -1,4 +1,4 @@
-version: "3"
+version: "1"
 services:
 
   postgres-db:
@@ -12,7 +12,6 @@ services:
     volumes:
       # declare your mount volume /host/dir:/container/dir
       - ./docker_volumes/pgdata:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   metabase-app:
     image: metabase/metabase:v0.39.4

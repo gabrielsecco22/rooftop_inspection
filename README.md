@@ -5,13 +5,29 @@ This is an IoT project designed to receive frames from drone flight and process 
 - Docker and docker-compose
 
 ## Install
-- git clone this repo and
-- Run `docker-compose up -d` in the root folder. Database files and dashboards included
+- Go to repo root folder
+- Start metabase and postgreSQL services in containers:
+```console
+ docker-compose up -d
+```
+- Restore database dump:
+```console
+ cat init.sql | docker exec -i rooftop_inspection_postgres-db_1 psql -U postgres
+```
 
 ## Metabase
 - Acess: `localhost:15010`
-- user: `admin@gmail2.com`
-- pass: 657n03ZdPC7kA8
+- user: `admin@gmail.com`
+- pass: admin123
 
-## Postgres
-- Access: `localhost:15432`
+## App database
+- host: `localhost:15432`
+- database: `postgres`
+- user: `postgres`
+- password: `postgres`
+
+## Metabase database
+- host: `localhost:15432`
+- database: `metabase`
+- user: `metabase`
+- password: `metabase`
