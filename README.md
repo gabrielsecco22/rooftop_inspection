@@ -31,3 +31,8 @@ This is an IoT project designed to receive frames from drone flight and process 
 - database: `metabase`
 - user: `metabase`
 - password: `metabase`
+
+## Backup database (postgres + metabase)
+```console
+docker exec -t rooftop_inspection_postgres-db_1 pg_dumpall -c -U postgres > init.sql
+```
