@@ -10,9 +10,13 @@ This is an IoT project designed to receive frames from drone flight and process 
 ```console
  docker-compose up -d
 ```
+- Copy database dump to the container:
+```console
+ docker cp ./init.sql rooftop_inspection_postgres-db_1:/init.sql
+```
 - Restore database dump:
 ```console
- docker cp ./init.sql rooftop_inspection_postgres-db_1:/init.sql && docker exec -i rooftop_inspection_postgres-db_1 psql -f /init.sql -U postgres
+docker exec -i rooftop_inspection_postgres-db_1 psql -f /init.sql -U postgres
 ```
 
 ## Metabase
